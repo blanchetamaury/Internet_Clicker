@@ -1,6 +1,6 @@
 # sdl pkg-config source file
 
-prefix=/home/amblanch/commun/perso/Internet_Clicker/SDL_LIB
+prefix=/home/amaury/Documents/perso/Internet_Clicker/SDL_LIB
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

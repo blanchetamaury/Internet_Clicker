@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   menu_settings.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amblanch <amblanch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/19 15:37:26 by amblanch          #+#    #+#             */
-/*   Updated: 2025/06/20 10:32:01 by amblanch         ###   ########.fr       */
+/*   Updated: 2025/06/20 22:02:01 by amaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,18 @@ void    menu_settings(t_all *all)
             if (animation_btn_settings(all, 5, "settings_theme") == 0)
                 SDL_RenderCopy(all->renderer, find_texture(all->texture, all->btn_menu.bar_theme), NULL, find_rect(all->rect, "settings_theme"));
 			SDL_RenderCopy(all->renderer, find_texture(all->texture, "settings_theme"), NULL, find_rect(all->rect, "settings_theme_text"));
+        }
+        if (all->btn_menu.settings_btn == 2)
+        {
+            if (animation_btn_settings(all, 5, "settings_music") == 0)
+                SDL_RenderCopy(all->renderer, find_texture(all->texture, all->btn_menu.bar_theme), NULL, find_rect(all->rect, "settings_music"));
+			SDL_RenderCopy(all->renderer, find_texture(all->texture, "settings_music_white"), NULL, find_rect(all->rect, "settings_music_text"));
+        }
+		else
+        {
+            if (animation_btn_settings(all, 5, "settings_music") == 0)
+                SDL_RenderCopy(all->renderer, find_texture(all->texture, all->btn_menu.bar_theme), NULL, find_rect(all->rect, "settings_music"));
+			SDL_RenderCopy(all->renderer, find_texture(all->texture, "settings_music"), NULL, find_rect(all->rect, "settings_music_text"));
         }
 		if (all->menu_theme == 1)
 		{

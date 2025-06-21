@@ -6,7 +6,7 @@
 /*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:23:33 by amblanch          #+#    #+#             */
-/*   Updated: 2025/06/13 21:50:11 by amaury           ###   ########.fr       */
+/*   Updated: 2025/06/20 21:48:25 by amaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	loading_loop_event(t_all *all)
 				{
 					mouse_x = event.button.x;
 					mouse_y = event.button.y;
-					if (all->render != MAIN_SCREEN && isButtonClicked(*find_rect(all->rect, "play"), mouse_x, mouse_y))
+					if (all->render != MAIN_SCREEN && all->button != PLAY_DESTROY && isButtonClicked(*find_rect(all->rect, "play"), mouse_x, mouse_y))
 					{
 						Mix_PlayChannel(-1, all->click, 0);
 						all->button = PLAY_BTN_DOWN;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_rect_for_texture.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amblanch <amblanch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:12:59 by amblanch          #+#    #+#             */
-/*   Updated: 2025/06/20 10:32:53 by amblanch         ###   ########.fr       */
+/*   Updated: 2025/06/22 00:30:12 by amaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,8 @@ void	init_rect_for_texture_menu(t_all *all)
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(0, 0, 1920, 1080, "theme_dog"));
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(1050, 700, 826, 105, "theme_troll_btn"));
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(1050, 900, 826, 105, "theme_dog_btn"));
+
+	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(40, 300, 826, 105, "settings_music"));
 		//text
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(366, 133, 174, 39, "settings_theme_text"));
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(1355, 133, 217, 39, "theme_default_text"));
@@ -75,6 +77,8 @@ void	init_rect_for_texture_menu(t_all *all)
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(1297, 533, 333, 39, "theme_sky_btn_text"));
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(1269, 733, 388, 39, "theme_troll_btn_text"));
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(1297, 933, 333, 39, "theme_dog_btn_text"));
+
+	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(366, 333, 159, 39, "settings_music_text"));
 	//save
 }
 
@@ -133,6 +137,9 @@ void	init_texture_menu(t_all *all)
 	//settings
 	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/settings_theme.png", all->renderer), "settings_theme"));
 	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/settings_theme_white.png", all->renderer), "settings_theme_white"));
+
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/settings_music.png", all->renderer), "settings_music"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/settings_music_white.png", all->renderer), "settings_music_white"));
 	
 	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_dark.png", all->renderer), "theme_dark"));
 	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_dark_white.png", all->renderer), "theme_dark_white"));
@@ -157,10 +164,10 @@ void	init_texture_menu(t_all *all)
 
 void	init_rect_for_texture_level1(t_all *all)
 {
-	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(-100, -100, 2020, 1180, "bg_level1"));
+	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(0, 0, 1920, 1080, "bg_level1"));
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(659, 239, 602, 602, "logo_level1"));
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(1100, 120, 700, 824, "shop_box"));
-	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(300, 960, 100, 100, "shop_lvl1"));
+	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(400, 970, 100, 100, "shop_lvl1"));
 	ft_lstadd_back_rect(&all->rect, ft_lstnew_rect(1142, 219, 308, 70, "shop_btn"));
 }
 
@@ -173,6 +180,8 @@ void	init_texture_level1(t_all *all)
 	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/logo.png", all->renderer), "logo_fond_level1"));
 	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/logo.png", all->renderer), "logo_level1"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "logo_level1"), SDL_BLENDMODE_BLEND);
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/zombie.png", all->renderer), "zombie"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/zombie_open.png", all->renderer), "zombie_open"));
 }
 
 void	new_size_texture(t_all *all, int width, int height)

@@ -6,7 +6,7 @@
 /*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 10:41:31 by amblanch          #+#    #+#             */
-/*   Updated: 2025/06/19 21:59:33 by amaury           ###   ########.fr       */
+/*   Updated: 2025/06/20 21:58:10 by amaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,16 @@ void	menu_loop_event(t_all *all)
 						all->menu_theme = 1;
 						all->btn_menu.settings_btn = 1;
 						all->status_btn_down = 5;
+					}
+				}
+				if (all->menu == SETTINGS_BTN)
+				{
+					if (isButtonClicked(*find_rect(all->rect, "settings_music"), mouse_x, mouse_y))
+					{
+						Mix_PlayChannel(-1, all->click, 0);
+						all->menu_theme = 0;
+						all->btn_menu.settings_btn = 2;
+						all->status_btn_down = 11;
 					}
 				}
 				if (all->menu_theme == 1 && all->menu == SETTINGS_BTN)

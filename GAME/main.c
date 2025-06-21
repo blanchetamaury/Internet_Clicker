@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amblanch <amblanch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:08:46 by amblanch          #+#    #+#             */
-/*   Updated: 2025/06/19 16:22:29 by amblanch         ###   ########.fr       */
+/*   Updated: 2025/06/21 20:26:32 by amaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,6 @@ void transition_reverse(t_all *all)
     }
     else
     {
-        count = 10.0f;
         all->render = EDGE_SCREEN;
     }
 }
@@ -169,9 +168,13 @@ void	main_loop(t_all	*all)
 	all->status_btn_down = 0;
 	all->count_time_btn = 0;
 	ft_init_btn(all);
+	Uint32 lastTicks = SDL_GetTicks();
 	while (all->status == RUNNING)
 	{
 		start_time = SDL_GetTicks();
+		Uint32 current = SDL_GetTicks();
+        all->dt = (current - lastTicks) / 1000.0f;
+        lastTicks = current;
 		switch (all->render)
 		{
 			case LOAD_SCREEN:

@@ -6,7 +6,7 @@
 /*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 09:54:05 by amblanch          #+#    #+#             */
-/*   Updated: 2025/06/19 21:52:28 by amaury           ###   ########.fr       */
+/*   Updated: 2025/06/22 00:30:52 by amaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include <string.h>
+#include <math.h>
+#include <stdbool.h>
 # include "struct.h"
 
 # define SCREEN_WIDTH 1920
@@ -35,6 +37,17 @@
 # define THEME_DARK_R 67
 # define THEME_DARK_G 10
 # define THEME_DARK_B 100
+
+#define SCREEN_W 800
+#define SCREEN_H 600
+#define BOT_SPEED 200         // pixels par seconde
+#define ATTAQUE_DIST 100      // distance d’attaque en pixels
+
+#define MAX_BOTS      100     // nombre max de bots
+#define SPAWN_INTERVAL 5.0f
+#define SPEED_ATTACK 1.0f
+#define BOT_RADIUS 32.0f 
+
 
 int 	isButtonClicked(SDL_Rect  rect, int mouseX, int mouseY);
 void	process_screen(t_all *all, t_status_render status);

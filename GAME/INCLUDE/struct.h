@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amblanch <amblanch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 16:53:07 by mlahonta          #+#    #+#             */
-/*   Updated: 2025/06/19 16:46:11 by amblanch         ###   ########.fr       */
+/*   Updated: 2025/06/22 00:53:09 by amaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,13 @@ typedef struct s_btn_menu
 	char	*bar_theme_down;
 }	t_btn_menu;
 
+typedef struct {
+    float x, y;      // position
+    float vx, vy;    // vitesse (unitaires ou à l’échelle de BOT_SPEED)
+    bool attacking;
+	Uint64 attack_start;
+} Bot;
+
 typedef struct s_all
 {
 	t_rect				*rect;
@@ -117,6 +124,8 @@ typedef struct s_all
 	int					mouse_power;
 	int					status_btn_down;
 	int					count_time_btn;
+	Bot					bot;
+	float				dt;
 	t_rectA				*clicker_rec;
 }		t_all;
 
