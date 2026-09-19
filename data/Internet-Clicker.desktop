@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Internet Clicker
+Comment=Un jeu de clicker basé sur les mèmes d'Internet
+Exec=Internet_Clicker
+Icon=Internet-Clicker
+Terminal=false
+Type=Application
+Categories=Utility;

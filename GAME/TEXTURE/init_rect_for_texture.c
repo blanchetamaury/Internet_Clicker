@@ -6,11 +6,12 @@
 /*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:12:59 by amblanch          #+#    #+#             */
-/*   Updated: 2025/06/22 00:30:12 by amaury           ###   ########.fr       */
+/*   Updated: 2026/09/19 11:54:09 by nda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../INCLUDE/graph.h"
+# include "graph.h"
+# include "config.h"
 
 void	init_rect_for_texture(t_all *all)
 {
@@ -31,18 +32,18 @@ void	init_rect_for_texture(t_all *all)
 
 void	init_texture(t_all *all)
 {
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/cat_left.png", all->renderer), "cat_left"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/cat_right.png", all->renderer), "cat_right"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/loading_bar.png", all->renderer), "loading_bar"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/meme.png", all->renderer), "meme"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/meme1.png", all->renderer), "meme1"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/meme2.png", all->renderer), "meme2"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/meme3.png", all->renderer), "meme3"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/meme4.png", all->renderer), "meme4"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/meme5.png", all->renderer), "meme5"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/meme6.png", all->renderer), "meme6"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/play.png", all->renderer), "play"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LOADING/tilte.png", all->renderer), "title"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/cat_left.png", all->renderer), "cat_left"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/cat_right.png", all->renderer), "cat_right"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/loading_bar.png", all->renderer), "loading_bar"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/meme.png", all->renderer), "meme"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/meme1.png", all->renderer), "meme1"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/meme2.png", all->renderer), "meme2"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/meme3.png", all->renderer), "meme3"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/meme4.png", all->renderer), "meme4"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/meme5.png", all->renderer), "meme5"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/meme6.png", all->renderer), "meme6"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/play.png", all->renderer), "play"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LOADING/tilte.png", all->renderer), "title"));
 }
 
 void	init_rect_for_texture_menu(t_all *all)
@@ -84,81 +85,81 @@ void	init_rect_for_texture_menu(t_all *all)
 
 void	init_texture_menu(t_all *all)
 {
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/cochon.png", all->renderer), "cochon"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/return.png", all->renderer), "return"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/menu_bar.png", all->renderer), "menu_bar"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/cochon.png", all->renderer), "cochon"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/return.png", all->renderer), "return"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/menu_bar.png", all->renderer), "menu_bar"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "menu_bar"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/menu_bar_down.png", all->renderer), "menu_bar_down"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/menu_bar_down.png", all->renderer), "menu_bar_down"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "menu_bar_down"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/btn_sky.png", all->renderer), "btn_sky"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/btn_sky.png", all->renderer), "btn_sky"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "btn_sky"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/btn_sky_down.png", all->renderer), "btn_sky_down"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/btn_sky_down.png", all->renderer), "btn_sky_down"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "btn_sky_down"), SDL_BLENDMODE_BLEND);
 
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/btn_troll.png", all->renderer), "btn_troll"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/btn_troll.png", all->renderer), "btn_troll"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "btn_troll"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/btn_troll_down.png", all->renderer), "btn_troll_down"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/btn_troll_down.png", all->renderer), "btn_troll_down"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "btn_troll_down"), SDL_BLENDMODE_BLEND);
 
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/btn_dog.png", all->renderer), "btn_dog"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/btn_dog.png", all->renderer), "btn_dog"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "btn_dog"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/btn_dog_down.png", all->renderer), "btn_dog_down"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/btn_dog_down.png", all->renderer), "btn_dog_down"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "btn_dog_down"), SDL_BLENDMODE_BLEND);
 
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/btn_dark.png", all->renderer), "btn_dark"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/btn_dark.png", all->renderer), "btn_dark"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "btn_dark"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/btn_dark_down.png", all->renderer), "btn_dark_down"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/btn_dark_down.png", all->renderer), "btn_dark_down"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "btn_dark_down"), SDL_BLENDMODE_BLEND);
 	
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/title.png", all->renderer), "title_menu"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/title.png", all->renderer), "title_menu"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "title_menu"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/title_sky.png", all->renderer), "title_menu_sky"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/title_sky.png", all->renderer), "title_menu_sky"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "title_menu_sky"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/title_troll.png", all->renderer), "title_menu_troll"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/title_troll.png", all->renderer), "title_menu_troll"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "title_menu_troll"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/title_dog.png", all->renderer), "title_menu_dog"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/title_dog.png", all->renderer), "title_menu_dog"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "title_menu_dog"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/text_exit.png", all->renderer), "text_exit"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/text_exit.png", all->renderer), "text_exit"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "text_exit"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/text_exit_white.png", all->renderer), "text_exit_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/text_exit_white.png", all->renderer), "text_exit_white"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "text_exit_white"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/text_save.png", all->renderer), "text_save"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/text_save.png", all->renderer), "text_save"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "text_save"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/text_save_white.png", all->renderer), "text_save_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/text_save_white.png", all->renderer), "text_save_white"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "text_save_white"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/text_play.png", all->renderer), "text_play"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/text_play.png", all->renderer), "text_play"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "text_play"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/text_play_white.png", all->renderer), "text_play_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/text_play_white.png", all->renderer), "text_play_white"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "text_play_white"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/text_settings.png", all->renderer), "text_settings"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/text_settings.png", all->renderer), "text_settings"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "text_settings"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/text_settings_white.png", all->renderer), "text_settings_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/text_settings_white.png", all->renderer), "text_settings_white"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "text_settings_white"), SDL_BLENDMODE_BLEND);
 	//settings
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/settings_theme.png", all->renderer), "settings_theme"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/settings_theme_white.png", all->renderer), "settings_theme_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/settings_theme.png", all->renderer), "settings_theme"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/settings_theme_white.png", all->renderer), "settings_theme_white"));
 
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/settings_music.png", all->renderer), "settings_music"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/settings_music_white.png", all->renderer), "settings_music_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/settings_music.png", all->renderer), "settings_music"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/settings_music_white.png", all->renderer), "settings_music_white"));
 	
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_dark.png", all->renderer), "theme_dark"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_dark_white.png", all->renderer), "theme_dark_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_dark.png", all->renderer), "theme_dark"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_dark_white.png", all->renderer), "theme_dark_white"));
 	
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_default.png", all->renderer), "theme_default"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_default_white.png", all->renderer), "theme_default_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_default.png", all->renderer), "theme_default"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_default_white.png", all->renderer), "theme_default_white"));
 	
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_troll_btn.png", all->renderer), "theme_troll_btn"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_troll_btn_white.png", all->renderer), "theme_troll_btn_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_troll_btn.png", all->renderer), "theme_troll_btn"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_troll_btn_white.png", all->renderer), "theme_troll_btn_white"));
 	
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_dog_btn.png", all->renderer), "theme_dog_btn"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_dog_btn_white.png", all->renderer), "theme_dog_btn_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_dog_btn.png", all->renderer), "theme_dog_btn"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_dog_btn_white.png", all->renderer), "theme_dog_btn_white"));
 
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_sky_btn.png", all->renderer), "theme_sky_btn"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_sky_btn_white.png", all->renderer), "theme_sky_btn_white"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_sky_btn.png", all->renderer), "theme_sky_btn"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_sky_btn_white.png", all->renderer), "theme_sky_btn_white"));
 	
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/theme_sky.png", all->renderer), "theme_sky"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/troll_wallpaper.png", all->renderer), "theme_troll"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/MENU/SETTINGS/dog_wallpaper.png", all->renderer), "theme_dog"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/theme_sky.png", all->renderer), "theme_sky"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/troll_wallpaper.png", all->renderer), "theme_troll"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/MENU/SETTINGS/dog_wallpaper.png", all->renderer), "theme_dog"));
 	//save
 }
 
@@ -173,15 +174,15 @@ void	init_rect_for_texture_level1(t_all *all)
 
 void	init_texture_level1(t_all *all)
 {
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/bg.png", all->renderer), "bg_level1"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/shop_lvl1.png", all->renderer), "shop_lvl1"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/shop_box.png", all->renderer), "shop_box"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/shop_btn.png", all->renderer), "shop_btn"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/logo.png", all->renderer), "logo_fond_level1"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/logo.png", all->renderer), "logo_level1"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LEVEL_1/bg.png", all->renderer), "bg_level1"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LEVEL_1/shop_lvl1.png", all->renderer), "shop_lvl1"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LEVEL_1/shop_box.png", all->renderer), "shop_box"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LEVEL_1/shop_btn.png", all->renderer), "shop_btn"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LEVEL_1/logo.png", all->renderer), "logo_fond_level1"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LEVEL_1/logo.png", all->renderer), "logo_level1"));
 	SDL_SetTextureBlendMode(find_texture(all->texture, "logo_level1"), SDL_BLENDMODE_BLEND);
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/zombie.png", all->renderer), "zombie"));
-	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture("GAME/TEXTURE/IMAGE/LEVEL_1/zombie_open.png", all->renderer), "zombie_open"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LEVEL_1/zombie.png", all->renderer), "zombie"));
+	ft_lstadd_back_texture(&all->texture, ft_lstnew_texture(LoadTexture(INSTALL_DIR "IMAGE/LEVEL_1/zombie_open.png", all->renderer), "zombie_open"));
 }
 
 void	new_size_texture(t_all *all, int width, int height)
