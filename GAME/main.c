@@ -6,11 +6,12 @@
 /*   By: amaury <amaury@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 13:08:46 by amblanch          #+#    #+#             */
-/*   Updated: 2025/06/21 20:26:32 by amaury           ###   ########.fr       */
+/*   Updated: 2026/09/19 12:00:21 by nda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "INCLUDE/graph.h"
+# include "graph.h"
+# include "config.h"
 
 int isButtonClicked(SDL_Rect  rect, int mouseX, int mouseY)
 {
@@ -29,7 +30,7 @@ static uint8_t	init_vars(t_all *all)
 	all->button = PLAY_BTN_UP;
 	all->render = LOAD_SCREEN;
 	all->menu = NONE;
-	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) != 0)
+	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
 		exit (1);
 	if (TTF_Init() == -1)
 	{
@@ -49,7 +50,7 @@ static uint8_t	init_vars(t_all *all)
 		printf("Erreur Mix_OpenAudio: %s\n", Mix_GetError());
 		return 1;
 	}
-	all->counter = TTF_OpenFont("FONT/ARCADECLASSIC.TTF", 36);
+	all->counter = TTF_OpenFont(INSTALL_DIR "FONT/ARCADECLASSIC.TTF", 36);
     if (!all->counter) {
         fprintf(stderr, "Erreur TTF_OpenFont: %s\n", TTF_GetError());
         SDL_DestroyRenderer(all->renderer);
@@ -136,27 +137,41 @@ void	transition(t_all *all)
         all->render = TRANSI_REVERS;
     }
 }
-
 void	main_loop(t_all	*all)
 {
 	Uint32			start_time;
 	Uint32			frame_duration;
 	int				offset;
+	Mix_Chunk		*son1;
+	SDL_Surface		*surface;
+	SDL_Cursor		*cursor;
 
 	offset = 1;
 	all->clicker_rec = NULL;
-	Mix_Chunk* son1 = Mix_LoadWAV("GAME/MUSIQUE/menu.mp3");
-	all->click = Mix_LoadWAV("GAME/MUSIQUE/click.mp3");
-	SDL_Surface* surface = IMG_Load("UTILITAIRE/cursor.png");
-	SDL_Cursor* cursor = SDL_CreateColorCursor(surface, 1, 1);
-	SDL_SetCursor(cursor);
-	SDL_FreeSurface(surface);
+
+	son1 = Mix_LoadWAV(INSTALL_DIR "MUSIQUE/menu.mp3");
+	all->click = Mix_LoadWAV(INSTALL_DIR "MUSIQUE/click.mp3");
 	if (!son1 || !all->click)
+		fprintf(stderr, "Erreur chargement audio: %s\n", Mix_GetError());
+
+	surface = IMG_Load(INSTALL_DIR "IMAGE/cursor.png");
+	if (surface)
 	{
-        printf("Erreur de chargement du son: %s\n", Mix_GetError());
-        return ;
-    }
-	Mix_PlayChannel(-1, son1, 0);
+		cursor = SDL_CreateColorCursor(surface, 1, 1);
+		if (cursor)
+			SDL_SetCursor(cursor);
+		else
+			fprintf(stderr, "Erreur curseur: %s\n", SDL_GetError());
+		SDL_FreeSurface(surface);
+	}
+	else
+	{
+		fprintf(stderr, "Erreur IMG_Load (%s): %s\n", INSTALL_DIR "/IMAGE/cursor.png", IMG_GetError());
+	}
+
+	if (son1)
+		Mix_PlayChannel(-1, son1, 0);
+
 	SDL_ShowWindow(all->window);
 	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "1");
 	all->window_y = 1080;

@@ -6,11 +6,12 @@
 /*   By: amblanch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 10:41:40 by amblanch          #+#    #+#             */
-/*   Updated: 2025/04/04 09:45:07 by amblanch         ###   ########.fr       */
+/*   Updated: 2026/09/19 11:38:12 by nda-cunh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../INCLUDE/graph.h"
+# include <string.h>
 
 SDL_Texture	*LoadTexture(const char *file, SDL_Renderer *renderer)
 {
